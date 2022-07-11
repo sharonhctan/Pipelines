@@ -10,4 +10,4 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
--template: Stages/stage-build.yaml
+  - template: Stages/stage-build.yaml
