@@ -17,6 +17,5 @@ stages:
           - task: PublishBuildArtifacts@1
             displayName: 'Publish Artifact: dist'
             inputs:
-              PathtoPublish: $(Build.ArtifactStagingDirectory)
-              artifactName: MyBuildOutputs
+              PathtoPublish: 'dist/my-pipeline'
 

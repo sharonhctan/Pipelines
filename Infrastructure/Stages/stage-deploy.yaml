@@ -7,7 +7,7 @@ stages:
         steps:
           - task: AzureStaticWebApp@0
             inputs:
-              output_location: $(Build.ArtifactStagingDirectory)
+              output_location: 'dist/my-pipeline'
               azure_static_web_apps_api_token: $(deployment_token)
             displayName: 'Deploy'
 
