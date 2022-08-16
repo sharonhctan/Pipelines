@@ -6,8 +6,9 @@ stages:
           - task: AzureStaticWebApp@0
             inputs:
               app_location: '/src'
-              output_location: '/src'
+              output_location: '/dist/my-pipeline'
               azure_static_web_apps_api_token: $(deployment_token)
+            displayName: 'Deploy'
 
 
 
