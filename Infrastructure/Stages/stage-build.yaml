@@ -12,10 +12,19 @@ stages:
                 npm install
                 ng build --prod
             displayName: 'npm install and build'
-      - job: publish
-        steps:
-          - task: PublishBuildArtifacts@1
-            displayName: 'Publish Artifact: dist'
+            workingDirectory: '$(Build.SourcesDirectory)'
+          - task: ArchiveFiles@2
+            displayName: 'Archive files'
             inputs:
-              PathtoPublish: 'dist/my-pipeline'
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/dist/my-pipeline/'
+              includeRootFolder: false
+              archiveType: zip
+              archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+              replaceExistingArchive: true
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+              ArtifactName: 'drop'
+              publishLocation: 'Container'
+
 

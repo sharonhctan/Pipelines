@@ -2,14 +2,16 @@ stages:
   - stage: deploy
     dependsOn:
     - build
+    condition: succeeded()
     jobs:
-      - job: deployment
+      - job: Deployment
         steps:
           - task: AzureStaticWebApp@0
+            displayName: 'Deploy Static Web App'
             inputs:
               output_location: 'dist/my-pipeline'
               azure_static_web_apps_api_token: $(deployment_token)
-            displayName: 'Deploy'
+
 
 
 
