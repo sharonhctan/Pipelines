@@ -1,12 +1,13 @@
 stages:
   - stage: deploy
+    dependsOn:
+    - build
     jobs:
-      - job: deploy
+      - job: deployment
         steps:
           - task: AzureStaticWebApp@0
             inputs:
-              app_location: '/src'
-              output_location: '/dist/my-pipeline'
+              output_location: $(Build.ArtifactStagingDirectory)
               azure_static_web_apps_api_token: $(deployment_token)
             displayName: 'Deploy'
 

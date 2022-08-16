@@ -12,3 +12,10 @@ stages:
                 npm install
                 ng build --prod
             displayName: 'npm install and build'
+      - job: publish
+        steps:
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish Artifact: dist'
+            inputs:
+              PathtoPublish: dist/my-pipeline
+
