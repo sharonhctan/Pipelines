@@ -1,0 +1,16 @@
+stages:
+  - stage: deploy
+    jobs:
+      - job: deploy
+        steps:
+          - task: AzureStaticWebApp@0
+            inputs:
+              app_location: '/src'
+              output_location: '/src'
+              azure_static_web_apps_api_token: $(deployment_token)
+
+
+
+
+
+

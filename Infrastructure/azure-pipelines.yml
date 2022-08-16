@@ -11,3 +11,4 @@ pool:
 
 stages:
   - template: Stages/stage-build.yaml
+  - template: Stages/stage-deploy.yaml
