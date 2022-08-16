@@ -17,5 +17,5 @@ stages:
           - task: PublishBuildArtifacts@1
             displayName: 'Publish Artifact: dist'
             inputs:
-              PathtoPublish: dist/my-pipeline
+              PathtoPublish: dist
 
